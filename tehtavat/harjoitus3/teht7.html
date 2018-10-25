@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 7</title>
+</head>
+<body>
+
+<div id="div" style="display: grid; grid-template-columns: auto auto auto auto auto; width: 100px; margin: auto;"> </div>
+
+<button onclick="rand()" style="margin: auto;">Generate</button>
+
+<script>
+
+
+    let d = document.getElementById("div");
+
+
+    //luodaan gridi
+    for(var i=0; i<5; i++){
+
+
+      for(var j=0; j<5; j++){
+
+        let di = document.createElement("div");
+        di.innerHTML = "<div id='d"+j+i+"'></div>";
+        d.appendChild(di);
+        let style = "border: solid 1px black; width: 30px; text-align: center;"
+        di.style = style;
+        let p = document.createElement("p");
+        p.innerHTML =  "<p id='p"+j+i+"'></p>"//num2;
+        let div = document.getElementById("d"+j+i);
+        console.log(div);
+        div.append(p);
+
+      }
+
+
+    }
+
+    //arvotaan bingonumerot
+   function rand(){
+
+      let num = 0;     
+
+      for(var i=0; i<5;i++){
+
+
+
+            for(var j=0; j<5; j++){
+               num += 1;
+               let num2 = randomoi(num);
+                console.log(num2);
+               p = document.getElementById("p"+j+i);
+               p.innerHTML =  num2;
+
+            }
+        }
+
+    }
+
+       //arpoo luvut
+        function randomoi(a){
+          let l;
+          let n = Math.floor((Math.random() * 4) + 1);
+
+          console.log(n);
+
+          switch (n){
+            case 1:
+                l = 4*a-3;
+                break;
+            case 2:
+                  l = 4*a-2;
+                  break;
+            case 3:
+                  l = 4*a-1;
+                  break;
+            case 4:
+                  l = 4*a;
+          }
+
+          return l;
+        }
+
+
+</script>
+
+</body>
+</html>
