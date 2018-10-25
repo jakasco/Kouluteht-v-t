@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 9</title>
+</head>
+<body>
+
+<button onclick=pelaa()>Arvo luvut</button>
+<p>Kolminumeroinen koodi:</p>     <p id="eka"></p>
+<p>Nelinumeroinen koodi:</p>    <p id="toka"></p>
+<script>
+
+
+  //arpoo luvut 1-9 väliltä
+  function randomoi9(){
+    var n = Math.floor((Math.random() * 9) + 1);
+    return n;
+  }
+
+  //arpoo luvut 1-6 väliltä
+  function randomoi6(){
+    var n = Math.floor((Math.random() * 6) + 1);
+    return n;
+  }
+
+  function pelaa() {
+
+    var eka = [];
+
+    for(var i=0; i<3; i++){
+      eka.push(randomoi9())
+    }
+
+    var toka = [];
+
+    for( var i=0; i<4; i++){
+      toka.push(randomoi6());
+    }
+
+    var e = document.getElementById("eka");
+    e.innerHTML = eka[0]+","+eka[1]+","+eka[2];
+    var t = document.getElementById("toka");
+    t.innerHTML = toka[0]+","+toka[1]+","+toka[2]+","+toka[3];
+  }
+
+</script>
+
+</body>
+</html>

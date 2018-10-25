@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 1</title>
+</head>
+<body>
+
+<script>
+
+    luku = prompt("Anna luku");
+
+    kertoma(luku);
+
+    function kertoma(n) {
+
+      var summa = 1;
+
+      for (var i=n; i>1; i--){
+        summa *= i;
+      }
+      alert("kertoma on "+summa);
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 3</title>
+</head>
+<body>
+
+<div id="divi"></div>
+
+<script>
+
+  //tehdään elementit
+  var d = document.getElementById("divi");
+  var u = document.createElement('ul');
+  u.setAttribute('id','lista');
+  d.appendChild(u);
+
+  var aloitus = prompt("Anna aloitusvuosi");
+  var lopetus = prompt("Anna lopetusvuosi");
+
+  for(var i=aloitus; i<lopetus; i++){
+
+   var a = karkausVuosi(i);
+
+    if(a==true){
+      console.log(i);
+      var li = document.createElement("li");
+      li.setAttribute('class','item');
+      li.innerHTML = i;
+      u.append(li);
+;    }
+
+  }
+
+  //palauta true tai false
+  function karkausVuosi(n){
+
+    if (n % 4 == 0) {
+        return true;
+    }else if (n % 100 == 0 && n % 400 == 0){
+        return true;
+    }
+  }
+
+</script>
+
+</body>
+</html>

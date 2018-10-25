@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 1</title>
+</head>
+<body>
+
+<script>
+
+  var pituus = prompt('Anna kuhan pituus sentteinä');
+
+  var alimitta = 37;
+
+  testPistuus(pituus); //testataan onko alamittainen
+
+  function jaljellaOlevaPituus(n){
+
+        var p = alimitta-n;
+        var a = "Puuuttuu "+p+" cm";
+        alert(a);
+  }
+
+
+  function testPistuus(n) {
+
+    if (n <= 37) {
+        jaljellaOlevaPituus(n);
+    }
+    else {
+      alert("Kuha ei ole alamittainen!");
+    }
+  }
+
+</script>
+
+</body>
+</html>

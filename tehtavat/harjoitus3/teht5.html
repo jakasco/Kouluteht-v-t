@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 5</title>
+</head>
+<body>
+
+<script>
+
+
+    var tulos = true;
+    var i;
+    var luku = prompt("Anna luku");
+
+
+    for(i = 2; i < luku; i++)
+    {
+      if(luku % i == 0)
+      {
+        tulos = false;
+        break;
+      }
+    }
+    if(tulos == true)
+    {
+      alert(luku+ " numerosi on alkuluku!");
+    }
+    else
+    {
+      alert(luku+ " numerosi ei ole alkuluku!");
+    }
+
+</script>
+
+</body>
+</html>

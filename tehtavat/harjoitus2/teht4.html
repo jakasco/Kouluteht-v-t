@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 4</title>
+</head>
+<body>
+
+<script>
+
+    var rahat = prompt("Rahamääräsi?");
+    var hinta = prompt("Bussilipun hinta?");
+
+    laske(rahat,hinta);
+
+    function laske(rahat, hinta){
+
+      var sum = rahat-hinta;
+
+      if(sum<=0){
+        alert("Rahasi eivät riitä, lompakkoosi jää "+rahat+"$");
+      }else{
+        alert("Hyvää matkaa, lompakkoosi jää "+sum+"$");
+      }
+
+    }
+
+</script>
+
+</body>
+</html>

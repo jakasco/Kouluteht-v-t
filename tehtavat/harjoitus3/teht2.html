@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 2</title>
+</head>
+<body>
+
+<script>
+
+    var luku;
+
+    kysyLuku();
+
+    function kysyLuku(){
+
+      //tehdään niin kauan kunnes positiivinen
+      do{
+        luku = prompt("Anna luku (Positiivinen)");
+        var a = testaaLuku(luku);
+      }while(a==false);
+      alert("Luvun neliöjuuri on: "+Math.sqrt(luku));
+    }
+
+    //positiivinen vai negatiivinen
+    function testaaLuku(n){
+      if(luku<0){
+        return false;
+      }else{
+        return true;
+      }
+    }
+
+</script>
+
+</body>
+</html>

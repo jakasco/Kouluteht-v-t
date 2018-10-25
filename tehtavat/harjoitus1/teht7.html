@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 7</title>
+</head>
+<body>
+
+<script>
+
+    var saldo = prompt('Tilisi saldo?');
+    var korko = prompt('Vuotuinen korkoprosentti?');
+
+    korko = korko/100; //decimaaleiksi korko
+
+    korko = saldo*korko; //vuotuinen korko
+
+    summa = +saldo + +korko; //alkuperäiseen saldoon lisätty korko;
+
+    summa = sentiksi(summa);
+
+    document.write('<p> Korko: '+korko+'$</p>')
+
+    document.write('<p> Saldo vuoden päästä: '+summa+'$</p>')
+
+    function sentiksi(x) {
+      return Number.parseFloat(x).toFixed(1);
+    }
+
+</script>
+
+</body>
+</html>

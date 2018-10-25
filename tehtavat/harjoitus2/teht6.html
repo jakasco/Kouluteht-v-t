@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 6</title>
+</head>
+<body>
+
+<script>
+
+    vuosi = prompt("Anna vuosi");
+
+    karkausVuosi(vuosi);
+
+    function karkausVuosi(n){
+
+      if (n % 4 == 0) {
+        alert("On karkausvuosi!");
+      }else if (n % 100 == 0 && n % 400 == 0){
+        alert("On karkausvuosi!");
+      }else {
+        alert("Ei ole karkausvuosi!");
+      }
+
+    }
+
+</script>
+
+</body>
+</html>

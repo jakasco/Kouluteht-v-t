@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 6</title>
+</head>
+<body>
+
+<script>
+
+    var l = prompt('Monta leiviskaa?');
+    var n = prompt('Monta naulaa?');
+    var l1 = prompt('Monta luotia?');
+
+    var luoti = 13.3;
+    var naula = luoti*32;
+    var leiviska = naula*20;
+
+    l = l*leiviska;
+    n = n*naula;
+    l1 = l1*luoti;
+
+    var summa = +l + +n + +l1;
+
+    var kilot = summa/1000;
+
+    var strKilo = kilot.toString();
+    var arr = strKilo.split(".");
+    //grammojen decimaalit
+    var g1 = arr[1].slice(0,3); //ensimmäiset 3 decimaalia
+    var g2 = arr[1].slice(-2);  //viimeiset 2
+    var finalGram = g1+"."+g2;  //saadaan muotoon xxx.xx
+
+    document.write('<p> '+arr[0]+' kiloa '+finalGram+' grammaa </p>');
+
+</script>
+
+</body>
+</html>

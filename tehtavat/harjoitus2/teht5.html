@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 5</title>
+</head>
+<body>
+
+<script>
+
+  test();
+
+  function test() {
+
+    var r = confirm("Lasketaanko neliöjuuri?");
+    if (r == true) {
+      luku = prompt("Anna luku");
+      kysyLuku(luku);
+    } else {
+      alert("Neliöjuurta ei lasketa");
+    }
+  }
+
+  function kysyLuku(n) {
+
+        if(n<0){
+          alert("Negatiivisesta luvusta ei voi ottaa neliöjuurta");
+        }else{
+          var vastaus = Math.sqrt(n);
+          alert("Vastaus on "+vastaus);
+        }
+
+  }
+
+</script>
+</body>
+</html>

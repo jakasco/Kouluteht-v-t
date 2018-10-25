@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 8</title>
+</head>
+<body>
+
+<button onclick=pelaa()>Pelaa</button>
+ <p>Eka heitto:</p>     <p id="eka"></p>
+ <p>Toka heitto:</p>    <p id="toka"></p>
+ <p>Silmälukujen summa:</p>    <p id="summa"></p>
+<script>
+ //arpoo luvut
+ function randomoi(){
+  var n = Math.floor((Math.random() * 6) + 1);
+  return n;
+ }
+
+ function pelaa() {
+
+   var eka = randomoi();
+   var toka = randomoi();
+   var summa = +eka + +toka;
+
+   var e = document.getElementById("eka");
+   e.innerHTML = eka;
+   var t = document.getElementById("toka");
+   t.innerHTML = toka;
+   var t = document.getElementById("summa");
+   t.innerHTML = summa;
+ }
+
+</script>
+
+</body>
+</html>

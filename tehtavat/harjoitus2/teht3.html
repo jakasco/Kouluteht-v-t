@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 3</title>
+</head>
+<body>
+
+<script>
+
+    sukupuoli = prompt("Sukupuolesi (Mies/Nainen)?");
+    sukupuoliF(sukupuoli);
+
+    function sukupuoliF(s) {
+
+      if(sukupuoli=="Mies"){
+            arvo = prompt("Hemoglobiiniarvosi?");
+           mies(arvo);
+      } else if(sukupuoli=="Nainen"){
+            arvo = prompt("Hemoglobiiniarvosi?"); 
+            nainen(arvo);
+      }else{
+        alert("Anna sukupuolesi joko Mies tai Nainen");
+      }
+
+    }
+
+    function mies(n){
+      if(n<134){
+          alert("Hemoglobiinisi on alhainen");
+      }else if(n>195){
+          alert("Hemoglobiinisi on korkea");
+      }else{
+        alert("Hemoglobiinisi on normaali");
+      }
+    }
+
+    function nainen(n) {
+       if (n < 117) {
+        alert("Hemoglobiinisi on alhainen");
+      } else if (n > 175) {
+        alert("Hemoglobiinisi on korkea");
+      } else{
+         alert("Hemoglobiinisi on normaali");
+       }
+    }
+
+</script>
+
+</body>
+</html>

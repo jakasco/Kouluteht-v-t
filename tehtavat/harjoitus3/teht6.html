@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 6</title>
+</head>
+<body>
+
+<script>
+
+    var maara = prompt("Arpakuutioiden määrä?");
+    var suosikki = prompt("Minkä haluaisit summan olevan?");
+
+    todennakoisyys(maara, suosikki);
+
+    //selvitetään todennäköisyys (määrä, suosikki)
+    function todennakoisyys(n,m){
+
+        var summa = 0; //joka kerta kun osuu silmäluku, lisätään tähän
+        var a;
+
+        for(var i=0; i<1000; i++){
+          var sum = 0;
+          //lasketaan arpakuutioiden määrän summa
+          for(var j=0; j<maara; j++)
+          {
+            a = randomoi();
+            sum += a;
+          }// j loop loppuu
+          //jos osuu oikea silmäluku
+          if (sum == suosikki) {
+            summa += 1;
+          }
+        }//for loop loppuu
+
+        //lopullinen todennäköyisyys
+        var tulos = summa/1000; //100, koska i loopissa 100 kierrosta
+
+        alert("Todennäköisyys on "+tulos);
+
+    }
+
+
+    //arpoo luvut
+    function randomoi(){
+      var n = Math.floor((Math.random() * 6) + 1);
+      return n;
+    }
+
+</script>
+
+</body>
+</html>
