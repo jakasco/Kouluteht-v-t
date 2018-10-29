@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 4</title>
+</head>
+<body>
+<div id='divi'></div>
+
+<script>
+
+    let arr = [];
+
+    let bool = false;
+
+    let ul = document.createElement("ul");
+    let d = document.getElementById("divi");
+    d.append(ul);
+    do{
+
+      let num = prompt("Anna numero");
+
+      if(num!=0){
+        arr.push(num);
+      }else{
+        bool = true;
+      }
+
+    }while(bool==false);
+
+    arr.sort(function(a, b){return a - b});
+
+    for(let i=0; i<arr.length; i++){
+      let li = document.createElement("li");
+      li.innerHTML = arr[i];
+      ul.append(li);
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 6</title>
+</head>
+<body>
+
+<div id="divi"></div>
+
+<script>
+
+
+  let arr = [];
+  let m = 0;
+  let med;
+  let bool = false;
+
+  let ul = document.createElement("ul");
+  let d = document.getElementById("divi");
+  d.append(ul);
+
+  //tallennetaan listaan lukuja kunnes 0
+  do{
+
+    let num = prompt("Anna numero");
+
+    if(num!=0){
+      arr.push(num);
+    }else{
+      bool = true;
+    }
+
+  }while(bool==false);
+
+  //laitetaan luvut suurimmasta pienimpään
+  arr.sort(function(a, b){return a - b});
+
+
+  //otetaan mediaani
+  const mediaani = (arr) => {
+
+    let pituus = arr.length;
+
+    //jos jaollinen kahdella
+    if(pituus % 2 == 0){
+    //  m = (pituus/2);
+      let ar1 = [];
+      let ar2 = [];
+
+      for(let i=0; i<pituus/2; i++){
+        ar1.push(arr[i]);
+      }
+
+      for(let i=pituus/2; i<pituus; i++){
+        ar2.push(arr[i]);
+      }
+
+      pituus1 = ar1.length;
+      let eka = ar1[pituus1-1];
+      let toka = ar2[0];
+      //Mediaani jaollisessa on kahden keskimmäisen keskiarvo
+      let sum = (+eka + +toka)/2;
+      alert("Mediaani on: "+sum);
+
+    }else{
+      m = (pituus+1)/2;
+      med = arr[m-1];
+      alert("Mediaani on: "+med);
+      }
+
+    }
+
+
+
+  mediaani(arr);
+
+</script>
+
+</body>
+</html>

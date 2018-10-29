@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 2</title>
+</head>
+<body>
+
+<div id="divi"></div>
+
+<script>
+
+    let maara = prompt("Osallistujien maara?");
+
+    let nimet = [];
+
+    let d = document.getElementById("divi");
+
+    let ol = document.createElement("ol");
+
+    d.append(ol);
+
+    for(var i=0; i<maara; i++){
+
+      let nimi = prompt("Anna nimi");
+
+      nimet.push(nimi);
+
+      let li = document.createElement("li");
+
+      li.innerHTML = nimet[i];
+
+      ol.append(li);
+    }
+
+
+</script>
+
+</body>
+</html>

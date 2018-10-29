@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 3</title>
+</head>
+<body>
+
+<div id='divi'></div>
+
+<script>
+
+    let koirat = [];
+
+    let ul = document.createElement("ul");
+    let d = document.getElementById("divi");
+    d.append(ul);
+    for (let i=0; i<6; i++){
+      let nimi = prompt("Anna koiran nimi");
+      koirat.push(nimi);
+    }
+
+    koirat.sort();
+    koirat.reverse();
+
+    for(let i=0; i<6; i++){
+
+      let li = document.createElement("li");
+      li.innerHTML = koirat[i];
+      ul.append(li);
+    }
+
+</script>
+
+</body>
+</html>

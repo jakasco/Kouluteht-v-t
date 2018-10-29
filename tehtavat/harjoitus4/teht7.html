@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 7</title>
+</head>
+<body>
+
+<div>
+
+    <ul id="ul">
+
+    </ul>
+
+</div>
+
+<script>
+
+    let ul= document.getElementById("ul");
+
+    let ehdokkaat = prompt("Anna ehdokkaiden lukumäärä");
+
+    let eArr = [];
+
+    //laitetaan ehdoikkaille omat numerot
+    for(let i=1; i<ehdokkaat+1; i++){
+      //äänestysnumero, äänet
+        console.log(i);
+        eArr.push([[i],[0]]);
+    }
+
+    //kysytään äänestäjien määrä
+    let aanestajat = prompt("Anna äänestäjien määrä:");
+
+    console.log(eArr[0][1]);
+
+    for(let i=0;i<aanestajat; i++){
+
+      let bool = false;
+      //ettei anneta vääriä ääniä
+      do {
+        let aani = prompt("Ketä äänestät?");
+
+        //tyhjä ääni
+        if (aani == 0) {
+            alert("Tyhjä ääni!");
+            bool = true;
+        } else if(aani <= ehdokkaat) {    //ettei äänestetä yli
+          alert("Äänestit ehdokasta "+aani);
+          let yht = eArr[aani-1][1];
+          //lisätään ääni
+          yht = +yht + +1;
+          eArr[aani-1][1] = yht;
+          bool = true;
+        }else{
+          alert("Väärä ääni. Anna ääni väliltä 1-"+ehdokkaat);
+        }
+      }while(bool==false);
+      console.log("Kierros: "+i);
+    }
+
+    for(let i=0; i<ehdokkaat; i++){
+
+       let a = "Ehdokas nro."+eArr[i][0]+" , äänet: "+eArr[i][1];
+       li = document.createElement("li");
+       li.setAttribute('class','item');
+       li.innerHTML = a;
+       ul.append(li);                                                              
+
+    }
+
+    let voittaja = [];
+
+    //voittajan tarkastus
+    for(let i=0; i<ehdokkaat; i++){
+          voittaja.push(eArr[i][1]);
+    }
+
+    function max( array ){
+        return Math.max.apply( Math, array );
+    };
+
+    let vNum = max(voittaja);
+   // vNum-=1; //koska 0
+    for (let i=0; i<ehdokkaat; i++){
+
+      //etsi voittaja vNumin avulla
+      if(eArr[i][1]==vNum){
+        alert("Voittaja on ehdokas nro."+eArr[i][0]);
+      }
+
+    }
+
+</script>
+
+</body>
+</html>

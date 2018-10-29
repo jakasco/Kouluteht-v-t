@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 5</title>
+</head>
+<body>
+
+<script>
+
+    let luvut = [];
+
+    let bool = false;
+
+    do{
+
+      let luku = prompt("Anna luku väliltä 1-1000");
+
+      if(luvut.includes(luku)){
+        alert("Luku on annettu!");
+        bool(true);
+      }else{
+        luvut.push(luku);
+      }
+
+    }while(bool == false);
+
+
+
+</script>
+
+</body>
+</html>
