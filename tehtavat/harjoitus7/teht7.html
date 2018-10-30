@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 7</title>
+</head>
+<body>
+
+<script>
+
+    const parilliset = (arr) => {
+
+      p = [];
+
+      for(let i=0; i<arr.length; i++){
+
+        if(arr[i] % 2 == 0){
+            p.push(arr[i]);
+        }else if (arr[i]==0){
+           p.push(arr[i]);
+        }
+
+      }
+      return p;
+    }
+
+    let l = prompt("Montako alkiota taulukkoon?");
+    let ar = [];
+
+    for(let i=0; i<l; i++){
+      let luku = prompt("Anna luku");
+      ar.push(luku);
+    }
+
+    let a = parilliset(ar);
+    alert(a);
+
+</script>
+
+</body>
+</html>

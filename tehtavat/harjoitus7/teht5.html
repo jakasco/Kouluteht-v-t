@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 5</title>
+</head>
+<body>
+
+<script>
+
+
+    const liita = (arr) => {
+
+      let str = "";
+
+      for(let i=0; i<arr.length; i++){
+
+        str += arr[i];
+      }
+
+      return str;
+    }
+
+    let l = prompt("Montako alkiota taulukkoon?");
+    let ar = [];
+
+    for(let i=0; i<l; i++){
+      let nimi = prompt("Anna nimi");
+      ar.push(nimi);
+    }
+
+    let n = liita(ar);
+
+    alert(n);
+
+</script>
+
+</body>
+</html>

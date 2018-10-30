@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 4</title>
+</head>
+<body>
+
+<script>
+
+    const suurin = (n1,n2,n3) => {
+
+
+      let arr = [n1,n2,n3];
+      arr.sort((a, b) => a - b);
+
+      //palauta viimeinen
+      return arr[2];
+      }
+
+    let nums = [];
+
+    for(let i=0; i<3; i++){
+      let luku = prompt("Anna luku");
+      nums.push(luku);
+    }
+
+    let isoin = suurin(nums[0],nums[1],nums[2]);
+    alert("suurin on: "+isoin);
+</script>
+
+</body>
+</html>

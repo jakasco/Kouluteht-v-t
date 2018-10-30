@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 8</title>
+</head>
+<body>
+
+<script>
+
+    function fibonacci(n){
+
+      ar = [];
+
+        ar[0] = 0;
+        ar[1] = 1;
+        for(let i=2; i<n; i++){
+          ar[i] = ar[i - 2] + ar[i - 1];
+          console.log( ar[i] = ar[i - 2] + ar[i - 1])
+        }
+        alert(ar);
+        alert("Luku on "+ar[n-1]);
+      }
+
+      let luku = prompt("Anna numero");
+
+      fibonacci(luku);
+
+</script>
+
+</body>
+</html>
