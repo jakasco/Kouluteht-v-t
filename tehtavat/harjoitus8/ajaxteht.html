@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax tehtävä</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+
+
+<div id="header">
+    <div id="otsikko">
+        <h1>ETSI TV-SARJOJA</h1>
+    </div>
+    <input id="hakuteksti" type="text">
+    <button id="hakunappi">Hae</button>
+</div>
+<div style="height: 20px;"></div>
+<div id="app">
+
+
+</div>
+
+    <script>
+
+        const nappi = document.getElementById("hakunappi");
+
+        const teksti = document.getElementById("hakuteksti");
+
+        const app = document.getElementById("app");
+
+        nappi.addEventListener('click', hae);
+
+        function hae() {
+
+          let val = teksti.value; //hakusana
+          console.log(val);
+
+          fetch(`https://api.tvmaze.com/search/shows?q=${val}`)
+          .then(vastaus => vastaus.json()).then(sarjat => {
+            const app = document.getElementById('app');     //haku alueen alla oleva div
+            app.innerHTML = sarjat.map(({show}) => `
+            <div id="main">
+            <div style="min-height: 10px;"></div>
+            <div>
+            ${show.image ? `<img src="${show.image.medium}" class="center">` : ''}
+               <h2>${show.name}</h2>
+               <p><b>Linkki:</b> <a href="${show.url}">${show.url}</a> </p>
+               <p><b>GENRE:</b> ${show.genres}</p>
+               <div id="sisalto">
+               <p><b>Summary:</b> ${show.summary}</p>
+                </div>
+               </div>
+
+               </div>
+
+             `).join('');
+            //console.log(sarjat);
+          })
+
+
+
+        /**
+         .then(function(response) {
+            return response.json();
+          })
+         .then(function(data) {
+            console.log(JSON.stringify(data));
+          });
+
+
+         } */
+
+        fetch(`https://api.tvmaze.com/search/shows?q=${val}`)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(data) {              //data sisältää json haun tulokset
+           console.log(data);
+
+           let pituus = Object.keys(data).length;
+
+         // const json = JSON.stringify(data)
+            for(let i=0; i<pituus; i++){
+            let sarja = "<div id='sarja' > <h2>"+data[i]+"</h2>  </div>"
+
+            console.log(json[i]);
+            }
+        });
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>
