@@ -39,6 +39,8 @@
 
           fetch(`https://api.tvmaze.com/search/shows?q=${val}`)
           .then(vastaus => vastaus.json()).then(sarjat => {
+            console.log(sarjat);
+
             const app = document.getElementById('app');     //haku alueen alla oleva div
             app.innerHTML = sarjat.map(({show}) => `
             <div id="main">

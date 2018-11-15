@@ -2,8 +2,13 @@
 
     width: 50%;
     margin: auto;
-    background-color: grey;
+    background-color: #DCDCDC;
 
+}
+
+body {
+
+    background-color: black;
 }
 
 #hakunappi {
@@ -31,17 +36,19 @@
     width: 30%;
     height: 10em;
     margin: auto;
-    background-color: #5a95c4;
+    background-color: #2F4F4F;
     border: 1px solid rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 10px #9ecaed;
+    box-shadow: 0 0 10px #2F4F4F;
     display: flex;
     justify-content: center;
+    align-items: center;
 
 }
 
 #otsikko {
 
-    vertical-align: baseline;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 #kuvaDiv {
@@ -62,6 +69,12 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+
+}
+
+h1 {
+
+
 
 }
 
