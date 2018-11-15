@@ -1,0 +1,97 @@
+#app {
+
+    width: 50%;
+    margin: auto;
+    background-color: #DCDCDC;
+
+}
+
+body {
+
+    background-color: black;
+}
+
+#hakunappi {
+
+    margin: auto;
+    width: 6em;
+    height: 6em;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    float: left;
+}
+
+#hakuteksti {
+
+    margin: auto;
+    border: solid black 2px;
+    height: 26px;
+    font-size: 24px;
+
+}
+
+#header {
+
+    width: 30%;
+    height: 10em;
+    margin: auto;
+    background-color: #2F4F4F;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px #2F4F4F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#otsikko {
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#kuvaDiv {
+
+    background-color: red;
+
+}
+
+#main {
+
+    border: 3px solid rgba(0, 0, 0, 0.8);
+
+}
+
+
+.center {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+h1 {
+
+
+
+}
+
+p {
+    text-align: center;
+}
+
+h2 {
+
+    text-align: center;
+
+}
+
+#sisalto {
+
+    width: 50%;
+    margin: auto;
+    background-color: white;
+
+}
