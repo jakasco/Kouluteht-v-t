@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 4</title>
+</head>
+<body>
+
+<button onclick="generate()">click</button>
+
+<script>
+
+    //a
+    const drawNumber = (low,high) => {
+
+      const luku = Math.floor((Math.random() * high) + low);
+
+      return luku;
+
+    }
+
+    //b
+    const valueIsIn = (arr,v) => {
+
+      for(let i=0; i<arr.length; i++){
+
+        if(arr[i] == v){
+          return false;
+        }
+      }
+      return true;
+    }
+
+
+    //c
+    const drawNumbers = (low, high, count) => {
+
+      let arr = [];
+
+      for(let i=0; i<count; i++) {
+
+        let luku = drawNumber(low, high);
+
+        let test = valueIsIn(arr, luku);
+
+        //jos lukua ei ole jo arrayssa
+        if (test == true) {
+          arr.push(luku);
+        }
+      }
+      arr.sort(function(a, b){return a-b});
+      console.log(arr);
+    }
+
+    const generate = () =>{
+      drawNumbers(1,40,8);
+    }
+
+</script>
+
+</body>
+</html>

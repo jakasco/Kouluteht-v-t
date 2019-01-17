@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 1</title>
+</head>
+<body>
+
+<div>
+    <p>Anna pituus</p>
+    <input id="pituus">
+
+    <p>Anna paino</p>
+    <input id="paino">
+
+
+    <button onclick="naytaBMI()">Laske BMI</button>
+</div>
+
+<script>
+
+    const laskeBMI = () => {
+
+      let pituus = document.querySelector("#pituus").value;
+      let paino = document.querySelector("#paino").value;
+
+      //bmi kaava = paino / (pituus^2)
+
+      let bmi;
+
+      if(pituus != "" && paino != ""){
+        bmi = paino / (pituus*pituus);
+      }
+        return bmi;
+    }
+
+    const naytaBMI = () => {
+
+      let bmi = laskeBMI();
+      alert("BMI: "+bmi);
+    }
+
+
+</script>
+
+</body>
+</html>

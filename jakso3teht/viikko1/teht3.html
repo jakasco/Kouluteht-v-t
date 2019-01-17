@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 3</title>
+</head>
+<body onload="reset()">
+
+<label>Arvaa luku</label>
+<input id="arvaus">
+<button onclick="arvaa()">Arvaa</button>
+<button onclick="reset()">Reset</button>
+
+<script>
+
+    const reset = () => {
+
+        const luku = Math.floor((Math.random() * 10) + 1);
+        return luku;
+    }
+
+
+
+    const arvaa = () => {
+
+      const luku = document.querySelector("#arvaus").value;
+
+      let bool = false;
+
+      do{
+
+      }while(luku==false);
+
+    }
+
+</script>
+
+
+</body>
+</html>

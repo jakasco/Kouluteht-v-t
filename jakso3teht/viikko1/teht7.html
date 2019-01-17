@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 7</title>
+</head>
+<body onload="reset()">
+
+<div>
+    <h1>Arvaa luku</h1>
+    <input id="inp">
+    <button onclick="arvaa()">Arvaa</button>
+    <button id="resetBtn" onclick="reset()">Pelaa uudestaan</button>
+</div>
+
+<div>
+    <h1>Arvatut numerot</h1>
+    <h1 id="arvaa"></h1>
+    <ul id="arvatut"></ul>
+</div>
+
+<script>
+
+    const ul = document.getElementById("arvatut");
+    const inp = document.getElementById("inp");
+    const arvaaLb = document.getElementById("arvaa");
+    const resetBtn = document.getElementById("resetBtn")
+
+    resetBtn.style.display = "none";
+
+    arvaaLb.style.display = "none";
+
+    let arvatutList = [];
+
+    //sinä true, tietokone false, kumman vuoro
+    let who = true;
+
+    let vali = [0,10];
+    //jos arvattu oikein
+    let win = false;
+
+    //random luku kun resetetaan peli
+    let arvattavaNumero;
+    let vaihtoEhto;
+
+    const reset = () =>
+    {
+
+      vali = [0,10]; 
+
+      //resettaa peli
+      win = false;
+
+      //resettaa arvatut arr
+      arvatutList = [];
+
+      //tyhjennä ul
+      ul.innerHTML = "";
+
+      //piilota arvaaLb
+      arvaaLb.innerHTML = "";
+
+      //arvo arvattava luku
+      //anna arvattava numero uusiksi
+
+      arvattavaNumero = Math.floor((Math.random() * 10) + 1);
+
+      //piilota reset nappi
+      resetBtn.style.display = "none";
+
+      //lista vaihtoehdoista
+         vaihtoEhto = [
+        ["Liian iso!", 0, "red"],
+        ["Liian pieni", 0, "orange"],
+        ["Oikein!", arvattavaNumero, "green"]
+
+      ];
+    };
+
+    const testArvattu = (num) => {
+        if(num > arvattavaNumero){
+          vaihtoEhto[0][1] = num;
+          return vaihtoEhto[0];
+        }else if(num < arvattavaNumero){
+          vaihtoEhto[1][1] = num;
+          return vaihtoEhto[1];
+        }else{
+          //jos luku on oikein
+         return vaihtoEhto[2];
+        }
+    }
+
+    const teeSiirto = (num, kuka) =>
+    {
+
+      let tulos = testArvattu(num);
+      arvaaLb.innerHTML = tulos[0];
+      arvaaLb.style.color = tulos[2];
+      const li = document.createElement("li");
+
+      //jos sinun vuoro
+      if(who==true){
+            li.innerHTML = num+" , "+tulos[0];
+      }else{
+            li.innerHTML = "Tietokone arvasi: "+num+" , "+tulos[0];
+      }
+      ul.appendChild(li);
+      arvatutList.push(num);
+          //jos arvaus on oikein
+          if(tulos[1]==arvattavaNumero){
+            console.log("oikein!!");
+            win = true;
+            resetBtn.style.display = "block";
+          }
+          /**
+          else if(who==true) {
+               if (tulos[1] < arvattavaNumero) {
+                  alert("Liian pieni!");
+             }
+             else if (tulos[1] > arvattavaNumero) {
+                  alert("Liian iso!");
+                }
+          } */
+
+          vali.push(num);
+          vali.sort(function(a, b){return a-b});
+          console.log("väli: "+vali);
+
+           return tulos;
+     }
+
+      const drawNumber = (low,high) => {
+           console.log("low "+low+" , high"+high);
+           const luku = Math.floor((Math.random() * high) + low);
+           console.log("arvottu: "+luku);
+           return luku;
+
+         }
+
+
+     const getMiddle = (arr) => {
+            let theMiddle = Math.floor(arr.length / 2);
+            let val= arr[theMiddle];
+            return val;
+    }
+
+
+       const getMiddleBigger = (arr) => {
+              let theMiddle = Math.floor(arr.length / 2);
+              let val= arr[theMiddle-1];
+              return val;
+      }
+
+        const getMiddleSmaller = (arr) => {
+               let theMiddle = Math.floor(arr.length / 2);
+               let val= arr[theMiddle+1];
+               return val;
+       }
+
+
+
+     const mietiSiirto = (tulos,num) => {
+         console.log("vali: "+vali);
+
+
+      //keskimmäisin numero
+      let keski = getMiddle(vali);
+
+
+      if(tulos == vaihtoEhto[0][0]){     //liian iso
+
+        let low = getMiddleBigger(vali);
+        let high = keski;
+         console.log("Väli: "+low+"-"+high);
+        let tArvaus = drawNumber(low,high);
+        return tArvaus;
+
+      } else if (tulos == vaihtoEhto[1][0]){  //liian pieni
+
+             let low = keski;
+             let high = getMiddleSmaller(vali);
+             console.log("Väli:"+low+"-"+high);
+
+           let tArvaus = drawNumber(low,high);
+           return tArvaus;
+      }
+     
+    }
+
+
+    const tietokoneArvaa = (arr,num) =>{
+      console.log("tietokoneelle annetty num: "+num);
+      let arvaus = mietiSiirto(arr[0],num);
+
+      teeSiirto(arvaus,who);
+      who = true;
+    }
+
+
+    const arvaa = () => {
+
+      let num = inp.value;
+
+      //jos value kenttä on tyhjä
+      if(inp.value!="") {
+       let num2 = teeSiirto(num,who);
+       who = false;
+       console.log(num2);
+       tietokoneArvaa(num2,num);               
+      }
+      inp.value = "";
+
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

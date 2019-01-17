@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 5</title>
+</head>
+<body onload="generate()">
+
+<input id="inp">
+
+<button onclick="clickA()">click</button>
+
+<script>
+
+  let ar = [];
+  let howManyRight = 0;
+  let nums;
+  let guess2 = 0;
+
+  //a
+  const drawNumber = (low,high) => {
+
+    const luku = Math.floor((Math.random() * high) + low);
+
+    return luku;
+
+  }
+
+  //b
+  const valueIsIn = (arr,v) => {
+
+    for(let i=0; i<arr.length; i++){
+
+      if(arr[i] == v){
+        return false;
+      }
+    }
+    return true;
+  }
+
+
+  //c
+  const drawNumbers = (low, high, count) => {
+
+    let arr = [];
+
+    for(let i=0; i<count; i++) {
+
+      let luku = drawNumber(low, high);
+
+      let test = valueIsIn(arr, luku);
+
+      //jos lukua ei ole jo arrayssa
+      if (test == true) {
+        arr.push(luku);
+      }
+    }
+    arr.sort(function(a, b){return a-b});
+    nums = arr;
+ //   console.log("nums: "+nums);
+  }
+
+  const generate = () =>{
+    drawNumbers(1,40,8);
+  }
+
+
+  function valuesInRange(a, low, high){
+
+    for(let i=0; i<a.length; i++) {
+
+      //jos listan luku ei ole high/low välillä, return false
+      if(a[i]<low){
+        return false;
+      }else if(a[i]>high){
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function valuesUnique(a){
+
+    let arr2 = a;
+
+    for(let i=0; i<a.length; i++){
+
+      for(let j=0; j<a.length; j++){
+
+        if(arr2[i] == a[j] && j!=i){
+      //    console.log(a[i]);
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+    function numbersLegal(a, low, high) {
+
+        let bool = valuesInRange(a,low,high);
+        let bool2 = valuesUnique(a);
+
+      // console.log("bool1 "+bool+" bool2 "+bool2);
+        if(bool == false || bool2 == false){
+          return false;
+        }
+        return true;
+    }
+
+    function clickA(){
+
+        let val = document.querySelector("#inp").value;
+
+        let bo = montaArvausta();
+
+        if(bo==false) {
+
+          editArr(ar, val);
+
+          let bool = numbersLegal(ar, 1, 40);
+
+          if (bool == true) {
+            checkGuess(ar[guess2], nums);
+          } else {
+            alert("Olet jo arvannut tuon luvun tai luku ei ole 1-40 välillä!");
+            ar.splice(-1, 1); //Otetaan viimeisin pois arraysta;
+          }
+        }else{
+               alert("Olet arvannut 7 kertaa!! Oikein meni: "+howManyRight);
+        }
+
+    }
+
+    function checkGuess(guess,a){
+     //   console.log("Your guess: "+guess);
+        for(let i=0; i<a.length; i++){
+
+          if(guess==a[i]){
+            howManyRight++;
+          }
+        }
+        guess2++;
+     //   console.log("Guessess: "+guess2+", right: "+howManyRight);
+
+
+    }
+
+  //jos on arvattu 7 kertaa
+    function montaArvausta() {
+      if(guess2==7){
+        return true;
+      }
+      return false;
+    }
+
+
+    function editArr(a,val){
+
+        a.push(val);
+       // console.log(a);
+        return a;
+    }
+
+  
+</script>
+
+</body>
+</html>

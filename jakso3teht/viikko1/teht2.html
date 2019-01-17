@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 2</title>
+</head>
+<body>
+
+
+<p>Numerator</p>
+<input id="num">
+
+<p>Denominator</p>
+<input id="det">
+
+
+<button onclick="laskeGCD()">GCD</button>
+
+<script>
+
+  const gcd = function(a, b) {
+    if ( ! b) {
+      return a;
+    }
+    console.log(b+"/"+a);
+    return gcd(b, a % b);
+  };
+
+    const laskeGCD = () => {
+
+      let num = document.querySelector("#num").value;
+      let det = document.querySelector("#det").value;
+
+      gcd(num,det);
+    }
+
+</script>
+
+</body>
+</html>

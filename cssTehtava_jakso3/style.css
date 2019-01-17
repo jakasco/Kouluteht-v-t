@@ -1,0 +1,100 @@
+#liikenneValo {
+
+    background-color: gainsboro;
+    width: 500px;
+    min-height: 500px;
+    float: right;
+    margin-top: 100px;
+    margin-right: 500px;
+
+}
+
+#yla {
+
+     width: 80px;
+     background-color: black;
+     min-height: 200px;
+     margin-top: 10%;
+     margin-left: 50%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     border: solid grey 5px;
+     border-radius: 5px;
+ }
+#ala {
+
+    width: 20px;
+    margin-left: 30px;
+    background-color: black;
+    min-height: 200px;
+    margin-top: 205px;
+    position: absolute;
+}
+
+#valo1 {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 24%;
+    background-color: green;
+    box-shadow:         inset 0 0 10px #000000;
+    background: hsla(120, 100%, 47%, 0.1);
+    background-image: radial-gradient(hsla(120, 100%, 47%, 1.00) 5%, transparent 100%);
+    background-size: 5px 5px;
+
+}
+
+#valo2 {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 24%;
+    background-color: yellow;
+    box-shadow:         inset 0 0 10px #000000;
+    background: hsla(50, 100%, 47%, 0.1);
+    background-image: radial-gradient(hsla(50, 100%, 47%, 1.00) 5%, transparent 100%);
+    background-size: 5px 5px;
+}
+
+#valo3 {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 24%;
+    background-color: red;
+    box-shadow:         inset 0 0 10px #000000;
+    background: hsla(0, 100%, 47%, 0.1);
+    background-image: radial-gradient(hsla(0, 100%, 47%, 1.00) 5%, transparent 100%);
+    background-size: 5px 5px;
+}
+
+body {
+
+    background-image: radial-gradient(blue, cornflowerblue);
+
+}
+
+#aurinko {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 35%;
+    background-color: yellow;
+    box-shadow:         inset 0 0 30px #ce2323;
+}
+
+#textBox {
+    border: solid black 6px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    margin-left: 10px;
+    border-radius: 10px;
+    margin-bottom: 100px;
+
+}
