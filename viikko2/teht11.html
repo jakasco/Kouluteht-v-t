@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 11</title>
+</head>
+<body>
+
+<button onclick="tee()">click</button>
+<input id="inp">
+
+<script>
+
+    const pituus = 100;
+
+    const inp = document.getElementById("inp");
+
+    const pickn = (n) => {
+
+      let arr = [];
+
+      let arr2 = [];
+
+      for(let i=0; i<pituus; i++){
+        arr.push(Math.floor((Math.random() * 100) + 1));
+      }
+
+      const filtered = arr.filter((v, i) => arr.indexOf(v) !== i);
+      const unique = new Set(filtered);
+
+      let temp = Array.from(unique);
+
+      for(let i=0; i<n; i++){
+        arr2.push(temp[i]);
+      }
+       console.log(arr);
+      console.log(arr2);
+        return arr2;
+    }
+
+
+
+
+    const tee = () =>{
+
+      let val = inp.value;
+      pickn(val);
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 9</title>
+</head>
+<body>
+
+<button onclick="mode()">Click</button>
+
+<script>
+
+  const drawNumber = (low,high) => {
+    const luku = Math.floor((Math.random() * high) + low);
+    return luku;
+  }
+
+    const createArr = (num) => {
+        let arr = [];
+
+        for(let i=0; i<num; i++){
+          let n = drawNumber(1,40);
+          arr.push(n);
+        }
+    return arr;
+    }
+
+    const biggest = (arr) => {
+
+    let biggestArr = [];
+
+    for(let i=0; i<arr.length; i++){
+      biggestArr.push(arr[i][1]);
+    }
+
+    let largest = Math.max.apply(Math, biggestArr);
+    for(let i=0; i<arr.length; i++){
+
+      //palautetaan isoin array
+      if(arr[i][1]==largest){
+        return arr[i];
+      }
+    }
+  }
+
+    const getMode = (arr) => {
+
+        let secondArr = [];
+
+        let thirdArr = [];
+
+        let biggestArr = [];
+
+        for(let i=0; i<arr.length; i++){
+          secondArr.push(arr[i]);
+        }
+        for(let i=0; i<arr.length; i++){
+
+            let count = 0;
+
+            //jos luku on monta kertaa, lisätään counttiin 1 lisää
+            for(let j=0; j<arr.length; j++){
+                if(secondArr[i] == arr[j]){
+                    count++;
+                }
+            }
+
+            let temp = [
+                [secondArr[i]],
+                [count]
+            ];
+            thirdArr.push(temp);
+
+            biggestArr.push(count);
+
+        }
+         biggestArr = biggest(thirdArr);
+
+        console.log("Eniten on "+biggestArr[0]+", "+biggestArr[1]+" kertaa");
+  }
+
+  const mode = () => {
+
+        let arr = createArr(10);
+        console.log("Array: "+arr);
+        getMode(arr);
+
+  }
+
+
+</script>
+
+
+</body>
+</html>

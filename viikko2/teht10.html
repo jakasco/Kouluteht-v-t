@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tehtävä 10</title>
+</head>
+<body>
+
+<button onclick="tee()">Click</button>
+
+<script>
+
+  const rnd = (fromm,to) => {
+    const luku = Math.floor((Math.random() * to) + fromm);
+    console.log(luku);
+    return luku;
+  }
+
+    const rndIntFromTo = (fromm, to) => {
+        return rnd(fromm,to);
+    }
+    const tee = () => {
+      rndIntFromTo(1,9);
+    }
+
+</script>
+
+</body>
+</html>
